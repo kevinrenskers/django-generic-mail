@@ -1,6 +1,6 @@
 # Django generic (class based) mail
 
-An easy to use, class based email for Django.
+Easy to use, class based email for Django.
 
 ## The problem
 There is no unified way in our Django projects to send email. Django's own email functions require too much boilerplate code and are not intelligent enough. They are also not class based.
