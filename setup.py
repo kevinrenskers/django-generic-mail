@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name="django-generic-mail",
-    version=__import__("generic_mail").get_version(),
+    version='0.1',
     description="Easy to use, class based email for Django",
     long_description=open("README.md").read(),
     author="Kevin Renskers",

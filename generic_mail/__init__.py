@@ -18,15 +18,6 @@ from django.template.loader import render_to_string
 from htmlrenderer import render
 
 
-VERSION = (0, 1)
-
-def get_version():
-    version = '%s.%s' % (VERSION[0], VERSION[1])
-    if VERSION[2]:
-        version = '%s.%s' % (version, VERSION[2])
-    return version
-
-
 class BodyNotSetException(Exception):
     pass
 
