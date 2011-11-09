@@ -9,11 +9,11 @@ Sending email should be as easy as creating an instance of the email class, prov
 
 ## What this class will do for you
 - It will send text email if:
-1) there is a custom text template, or
-2) when using default templates, if text_body is set
+  1. there is a custom text template, or
+  2. when using default templates, if text_body is set
 - It will send html email if:
-1) there is a custom html template, or
-2) when using default templates, if html_body is set
+  1. there is a custom html template, or
+  2. when using default templates, if html_body is set
 - You can also force to send a text email when there is only a html_body. It will then convert html to text for you.
 - You can also force to send a html email when there is only a text_body. It will then convert text to html for you.
 
