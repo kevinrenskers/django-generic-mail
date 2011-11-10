@@ -18,7 +18,7 @@ Sending email should be as easy as creating an instance of the email class, prov
 - You can also force to send a html email when there is only a text_body. It will then convert text to html for you.
 
 ## What it doesn't do
-This email class doesn't know about mail queues. You can used a custom email backend or a project like [Django-mailer](https://github.com/jtauber/django-mailer).
+This email class doesn't know about mail queues. You can use a custom email backend or a project like [Django-mailer](https://github.com/jtauber/django-mailer) for that.
 
 ## Usage
     from generic_email import Email
