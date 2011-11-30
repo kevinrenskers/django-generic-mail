@@ -189,8 +189,9 @@ class Email(object):
             message.body = html
             message.content_subtype = 'html'
 
-        for attachment in self.attachments:
-            message.attach_file(attachment)
+        if self.attachments:
+            for attachment in self.attachments:
+                message.attach_file(attachment)
 
         return message
 
