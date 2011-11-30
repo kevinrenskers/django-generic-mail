@@ -47,24 +47,18 @@ class Email(object):
     _custom_templates = False
     _markdown = None
 
-    def __init__(self, to=None, subject=None, text_body=None, html_body=None, attachments=[], cc=None, bcc=None,
-                 from_address=None, text_template=None, html_template=None, **kwargs):
+    def __init__(self, **kwargs):
         """
         Init the class, the kwargs will be used as context variables
         """
-        self.to = to
-        self.subject = subject
-        self.attachments = attachments
-        self.cc = cc
-        self.bcc = bcc
-        self.from_address = from_address
-        self.text_body = text_body
-        self.html_body = html_body
-        self.text_template = text_template
-        self.html_template = html_template
+        for key in kwargs.copy():
+            if hasattr(self, key) and not key.startswith('_'):
+                setattr(self, key, kwargs[key])
+                del kwargs[key]
+
         self.kwargs = kwargs
 
-        if text_template or html_template:
+        if self.text_template or self.html_template:
             self._custom_templates = True
 
     def text_to_html(self):
@@ -156,7 +150,7 @@ class Email(object):
         if not lst:
             return []
         if isinstance(lst, basestring):
-             return [lst]
+            return [lst]
         return list(lst)
 
     def create_message(self, send_text, send_html):
@@ -194,8 +188,9 @@ class Email(object):
             message.body = html
             message.content_subtype = 'html'
 
-        for attachment in self.attachments:
-            message.attach_file(attachment)
+        if self.attachments:
+            for attachment in self.attachments:
+                message.attach_file(attachment)
 
         return message
 
