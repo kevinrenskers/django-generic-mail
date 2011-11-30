@@ -47,8 +47,7 @@ class Email(object):
     _custom_templates = False
     _markdown = None
 
-    def __init__(self, to=None, subject=None, text_body=None, html_body=None, attachments=None, cc=None, bcc=None,
-                 from_address=None, text_template=None, html_template=None, **kwargs):
+    def __init__(self, **kwargs):
         """
         Init the class, the kwargs will be used as context variables
         """
