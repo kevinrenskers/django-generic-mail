@@ -2,9 +2,9 @@ from distutils.core import setup
 
 setup(
     name="django-generic-mail",
-    version='0.2',
+    version='0.2.1',
     description="Easy to use, class based email for Django",
-    long_description=open("README.md").read(),
+    long_description=open("README.rst").read(),
     author="Kevin Renskers",
     author_email="info@mixedcase.nl",
     url="https://github.com/kevinrenskers/django-generic-mail",

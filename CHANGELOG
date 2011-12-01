@@ -1,0 +1,10 @@
+0.1: never released
+- First initial version
+
+0.2: December 1, 2011
+- First public release on PyPi
+- Added correct package dependencies
+
+0.2.1: December 1, 2011
+- Changed README format to reStructuredText, for rendering on PyPi
+- Added CHANGELOG
