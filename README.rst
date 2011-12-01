@@ -4,6 +4,7 @@ Overview
 
 **Easy to use, class based email for Django.**
 
+
 The problem
 ===========
 There is no unified way in our Django projects to send email. Django's own email functions require too much boilerplate
@@ -12,6 +13,7 @@ code and are not intelligent enough. They are also not class based.
 Sending email should be as easy as creating an instance of the email class, provide one piece of text, and calling the
 send() method. This is the easiest, most common case. It should also be possible to override base templates,
 give separate text- and html versions, send the mail to a queue, etc.
+
 
 What this class will do for you
 ===============================
@@ -31,10 +33,19 @@ What this class will do for you
 
 - You can also force to send a html email when there is only a text_body. It will then convert text to html for you.
 
+
 What it doesn't do
 ==================
 This email class doesn't know about mail queues. You can use a custom email backend or a project like
 https://github.com/jtauber/django-mailer for that.
+
+
+Installation
+============
+::
+
+    $ pip install django-generic-mail
+
 
 Usage
 =====
@@ -81,6 +92,7 @@ Usage
     # This will generate an error: when using default templates, you need to give at least one body (text or html)
     email = Email('to@example.com', 'Subject')
     email.send()
+
 
 Subclassing
 ===========

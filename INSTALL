@@ -1,1 +1,1 @@
-pip install -e git://github.com/kevinrenskers/django-generic-mail.git#egg=django-generic-mail
+pip install django-generic-mail
