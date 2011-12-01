@@ -39,10 +39,9 @@ class Email(object):
     text_template = None
     html_template = None
 
-    kwargs = None
-
     _default_text_template = 'email/base_text_email.html'
     _default_html_template = 'email/base_html_email.html'
+    _kwargs = None
     _context = None
     _custom_templates = False
     _markdown = None
@@ -62,7 +61,7 @@ class Email(object):
         self.html_body = html_body or self.html_body
         self.text_template = text_template or self.text_template
         self.html_template = html_template or self.html_template
-        self.kwargs = kwargs
+        self._kwargs = kwargs
 
         if self.text_template or self.html_template:
             self._custom_templates = True
@@ -114,7 +113,7 @@ class Email(object):
                 'text_body': self.get_text_body(),
                 'html_body': self.get_html_body()
             }
-            self._context.update(self.kwargs)
+            self._context.update(self._kwargs)
 
         return self._context
 
@@ -226,10 +225,12 @@ class Email(object):
         # and html_body is required when we want to send html email
         if not self._custom_templates:
             if send_text and not (self.text_body or self.html_body):
-                raise BodyNotSetException('When using the default email templates, and you want to send text, you will need to provide a body (either text_body or html_body)')
+                raise BodyNotSetException('When using the default email templates, and you want to send text,\
+                    you will need to provide a body (either text_body or html_body)')
 
             if send_html and not (self.html_body or self.text_body):
-                raise BodyNotSetException('When using the default email templates, and you want to send html, you will need to provide a body (either text_body or html_body)')
+                raise BodyNotSetException('When using the default email templates, and you want to send html,\
+                    you will need to provide a body (either text_body or html_body)')
 
         message = self.create_message(send_text, send_html)
         if message:

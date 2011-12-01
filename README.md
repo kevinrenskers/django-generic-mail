@@ -62,3 +62,7 @@ This email class doesn't know about mail queues. You can use a custom email back
     # This will generate an error: when using default templates, you need to give at least one body (text or html)
     email = Email('to@example.com', 'Subject')
     email.send()
+
+## Subclassing
+If you want to create your own subclass that has different defaults (other templates, subject, etc), the best way to do
+this is by changing the class properties instead of overriding the `__init__` method.
