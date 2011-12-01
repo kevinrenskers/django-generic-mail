@@ -8,3 +8,6 @@
 0.2.1: December 1, 2011
 - Changed README format to reStructuredText, for rendering on PyPi
 - Added CHANGELOG
+
+0.2.2: December 1, 2011
+- Correct MANIFEST.in file
