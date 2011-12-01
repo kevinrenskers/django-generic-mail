@@ -21,7 +21,7 @@ Sending email should be as easy as creating an instance of the email class, prov
 This email class doesn't know about mail queues. You can use a custom email backend or a project like [Django-mailer](https://github.com/jtauber/django-mailer) for that.
 
 ## Usage
-    from generic_email import Email
+    from generic_mail import Email
 
     # This will send text email only, uses the email/base_text_email.html template with the "body" template variable
     email = Email('to@example.com', 'Subject', 'Line one\n\nLine two')

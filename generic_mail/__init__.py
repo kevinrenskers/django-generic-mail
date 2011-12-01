@@ -47,15 +47,21 @@ class Email(object):
     _custom_templates = False
     _markdown = None
 
-    def __init__(self, **kwargs):
+    def __init__(self, to=None, subject=None, text_body=None, html_body=None, attachments=None, cc=None, bcc=None,
+                 from_address=None, text_template=None, html_template=None, **kwargs):
         """
         Init the class, the kwargs will be used as context variables
         """
-        for key in kwargs.copy():
-            if hasattr(self, key) and not key.startswith('_'):
-                setattr(self, key, kwargs[key])
-                del kwargs[key]
-
+        self.to = to or self.to
+        self.subject = subject or self.subject
+        self.attachments = attachments or self.attachments
+        self.cc = cc or self.cc
+        self.bcc = bcc or self.bcc
+        self.from_address = from_address or self.from_address
+        self.text_body = text_body or self.text_body
+        self.html_body = html_body or self.html_body
+        self.text_template = text_template or self.text_template
+        self.html_template = html_template or self.html_template
         self.kwargs = kwargs
 
         if self.text_template or self.html_template:
