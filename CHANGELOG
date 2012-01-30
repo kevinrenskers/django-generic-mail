@@ -11,3 +11,6 @@
 
 0.2.2: December 1, 2011
 - Correct MANIFEST.in file
+
+0.2.3: January 30, 2012
+- Merged pull request #2: now possible to provide custom headers
