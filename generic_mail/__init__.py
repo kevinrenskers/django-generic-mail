@@ -33,6 +33,7 @@ class Email(object):
     bcc = None
     from_address = None
     attachments = None
+    headers = None
 
     text_body = None
     html_body = None
@@ -47,7 +48,7 @@ class Email(object):
     _markdown = None
 
     def __init__(self, to=None, subject=None, text_body=None, html_body=None, attachments=None, cc=None, bcc=None,
-                 from_address=None, text_template=None, html_template=None, **kwargs):
+                 from_address=None, text_template=None, html_template=None, headers=None, **kwargs):
         """
         Init the class, the kwargs will be used as context variables
         """
@@ -61,6 +62,7 @@ class Email(object):
         self.html_body = html_body or self.html_body
         self.text_template = text_template or self.text_template
         self.html_template = html_template or self.html_template
+        self.headers = headers or self.headers
         self._kwargs = kwargs
 
         if self.text_template or self.html_template:
@@ -179,7 +181,8 @@ class Email(object):
             from_email=self.get_from_address(),
             to=to,
             cc=self._validate_list(self.cc),
-            bcc=self._validate_list(self.bcc)
+            bcc=self._validate_list(self.bcc),
+            headers=self.headers
         )
 
         if text:
